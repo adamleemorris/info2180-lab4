@@ -63,10 +63,31 @@ $superheroes = [
   ], 
 ];
 
+
+
+$searchQuery = strtolower($_GET['query']);
+
+// Function to check if a superhero matches the search query
+function isMatch($superhero, $searchQuery) {
+    $name = strtolower($superhero['name']);
+    $alias = strtolower($superhero['alias']);
+    return strpos($name, $searchQuery) !== false || strpos($alias, $searchQuery) !== false;
+}
+
+// Filter superheroes based on the search query
+$matchedSuperheroes = array_filter($superheroes, function ($superhero) use ($searchQuery) {
+    return isMatch($superhero, $searchQuery);
+});
+
+// Output the filtered superheroes as JSON
+echo json_encode(array_values($matchedSuperheroes));
+
+exit;
+
 ?>
 
 <ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
+    <?php foreach ($superheroes as $superhero): ?>
+    <li><?= $superhero['alias']; ?></li>
+    <?php endforeach; ?>
 </ul>

@@ -1,0 +1,53 @@
+
+
+body{
+    background-color: #f0f0f0;
+}
+
+.heading{
+    color: white;
+    background-color: #4d8ab5;
+    padding: 15px;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.content{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 200px;
+}
+
+.search{
+    background-color: red;
+    color: white;
+    
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+cursor: pointer;
+}
+
+input{
+
+    padding: 12px 24px;
+    width: 100%;
+ 
+}
+
+.inputSection{
+    display: flex;
+
+}
+.unfound{
+
+    color: red ;
+    font-weight: 600;
+}
